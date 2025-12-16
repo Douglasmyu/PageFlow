@@ -1,4 +1,29 @@
-# React + Vite
+# PageFlow 📚
+
+**PageFlow** is a webapp that visualizes your progress with any book in the database.  
+A simple, visual way to monitor reading progress and build consistent reading habits.
+
+---
+
+## Table Of Contents
+    - [Features](#-features)
+    - [Authentication]
+
+---
+
+##  Features
+
+- **Book Tracking**  
+    Search books from datasets to add to your profile.  Tracks current pages, total pages, % complete, and start date
+
+- **Visualized Progress**  
+    Progress bar, 
+
+- **Social/Sharing**
+    Follow friends and see what they are reading.  Like and react to progress updates
+- **Streaks/Accountability**
+    Reading streaks(days in a row).  Like watering a plant, keep FlowPlant happy by keeping a reading streak
+<!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
@@ -13,4 +38,4 @@ The React Compiler is not enabled on this template because of its impact on dev 
 
 ## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project. -->
