@@ -1,11 +1,29 @@
 import { useState } from 'react'
 import Home from './pages/home'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import About from './pages/About'
+import Nav from './components/Nav'
+import {  BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import './App.css'
 
 function App() {
   return (
-    <div className="h-screen bg-green-500 flex items-center justify-center">
-      <h1 className="text-6xl font-bold text-white">TAILWIND WORKS</h1>
+    <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
+      <BrowserRouter>
+
+      <Nav />
+      <Routes>
+
+        <Route path="/" element={<Home />}/>
+        <Route path="/About" element={<About />} />
+        <Route path="/Login"  element={<Login />}/>
+        <Route path="/Register"  element={<Register />}/>
+
+      </Routes>
+      </BrowserRouter>
+      
+      
     </div>
   )
 }
