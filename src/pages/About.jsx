@@ -18,8 +18,8 @@ export default function About(){
                     <div className="text-blue-800 mb-4 text-3xl">
                         <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">📚</span>
                     </div>
-                    <h2 className="font-bold ">Book Tracking</h2>
-                    <p><a className="font-bold text-red-600">Keep</a> track of what you’re reading by logging pages, chapters, and start dates,
+                    <h2 className="font-bold text-[#1F2937]">Book Tracking</h2>
+                    <p className="text-[#6B7280]"><a className="font-bold text-red-600">Keep</a> track of what you’re reading by logging pages, chapters, and start dates,
                     all in one simple dashboard.</p>
                 </div>
                 <div className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-xl shadow-xl border 
@@ -28,7 +28,7 @@ export default function About(){
                         <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">📈</span>
                     </div>
                     <h2 className="font-bold ">Visualize Progress</h2>
-                    <p><a className="font-bold text-red-600">See</a> your reading momentum through progress bars, timelines, and streaks that
+                    <p className="text-[#6B7280]"><a className="font-bold text-red-600">See</a> your reading momentum through progress bars, timelines, and streaks that
                     make consistency feel rewarding.</p>
                 </div>
                 <div className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-xl shadow-xl border
@@ -37,7 +37,7 @@ export default function About(){
                         <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">👥</span>
                     </div>
                     <h2 className="font-bold ">Social Sharing</h2>
-                    <p><a className="font-bold text-red-600">Build</a> a daily reading habit with gentle streak tracking that encourages
+                    <p  className="text-[#6B7280]"><a className="font-bold text-red-600">Build</a> a daily reading habit with gentle streak tracking that encourages
                     progress without pressure.</p>
                 </div>
             </div>
@@ -49,7 +49,7 @@ export default function About(){
                         <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">🔥</span>
                     </div>
                     <h2 className="font-bold ">Reading Streaks</h2>
-                    <p>
+                    <p  className="text-[#6B7280]">
                     Build a daily reading habit with gentle streak tracking that encourages
                     progress without pressure.
                     </p>
@@ -58,7 +58,7 @@ export default function About(){
                 border-white border-opacity-20 transform transition-all duration-300 hove:scale-[1.02]
                 hover:shadow-2xl">
                     <h2 className="font-bold ">FlowPlant Companion</h2>
-                    <p>
+                    <p  className="text-[#6B7280]">
                     Watch your Flowplant grow as you read consistently, offering calm,
                     visual motivation along your reading journey.
                     </p>
