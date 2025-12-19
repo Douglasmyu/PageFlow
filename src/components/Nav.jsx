@@ -6,7 +6,7 @@ export default function Nav(){
     return(
         <div className="fixed top-0 left-0 w-full z-50 bg-slate-700 shadow-md ">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-                <div className="text-white font-bold text-lg transition-transform duration-150 hover:scale-150">
+                <div className="text-white font-bold text-lg transition-transform duration-350 hover:scale-150">
                     <Link to="/"><a className="text-[#1F2937]">Page</a><a className="text-[#7ED3B2]">Flow</a></Link>
                 </div>
                 <div className="hidden md:block">

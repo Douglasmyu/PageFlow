@@ -5,7 +5,7 @@ export default function About(){
     return(
         <div className="w-full px-4 py-8 relative z-10 text-black">
             <div className="w-fit bg-blue-500 hover:bg-blue-700 
-        text-white font-semibold px-6 py-3 rounded-md transition">
+        text-white font-semibold px-6 py-3 rounded-md transition absolute">
                 <button>
                     <Link to ="/">Back</Link>
                 </button>
