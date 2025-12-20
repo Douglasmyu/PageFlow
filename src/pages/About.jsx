@@ -57,6 +57,9 @@ export default function About(){
                 <div className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-2xl shadow-xl
                 border-white border-opacity-20 transform transition-all duration-300 hove:scale-[1.02]
                 hover:shadow-2xl">
+                    <div className="text-blue-800 mb-4 text-3xl">
+                        <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">🌱</span>
+                    </div>
                     <h2 className="font-bold ">FlowPlant Companion</h2>
                     <p  className="text-[#6B7280]">
                     Watch your Flowplant grow as you read consistently, offering calm,
