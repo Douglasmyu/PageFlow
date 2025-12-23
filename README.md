@@ -7,7 +7,7 @@ A simple, visual way to monitor reading progress and build consistent reading ha
 
 ## Table Of Contents
     - [Features](#-features)
-    - [Authentication]
+    - [Authentication](#-authentication)
 
 ---
 
@@ -23,6 +23,12 @@ A simple, visual way to monitor reading progress and build consistent reading ha
     Follow friends and see what they are reading.  Like and react to progress updates
 - **Streaks/Accountability**
     Reading streaks(days in a row).  Like watering a plant, keep FlowPlant happy by keeping a reading streak
+
+
+## Authentication
+
+- **Google Authentication**
+    Use your google account to login/
 <!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
