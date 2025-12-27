@@ -24,6 +24,8 @@ A simple, visual way to monitor reading progress and build consistent reading ha
 - **Streaks/Accountability**
     Reading streaks(days in a row).  Like watering a plant, keep FlowPlant happy by keeping a reading streak
 
+- **Book Recommendations**
+    Finished reading?  Try out other books recommended based on books youve logged.
 
 ## Authentication
 
