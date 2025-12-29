@@ -4,16 +4,6 @@ import { FcGoogle } from "react-icons/fc";
 
 export default function Login() {
 
-  const loginWithGoogle = async () => {
-    try{
-      const result = await signInWithPopup(auth, googleProvider);
-      const user = result.user;
-      alert(`Welcome ${user.displayName}`);
-    } catch (error) {
-      alert(error.message)
-    }
-  };
-
   return (
     <div className="min-h-screen flex w-full">
       {/* green Left Side yo */}

@@ -6,8 +6,8 @@ A simple, visual way to monitor reading progress and build consistent reading ha
 ---
 
 ## Table Of Contents
-    - [Features](#-features)
-    - [Authentication](#-authentication)
+- [Features](#-features)
+- [Authentication](#-authentication)
 
 ---
 
@@ -30,7 +30,7 @@ A simple, visual way to monitor reading progress and build consistent reading ha
 ## Authentication
 
 - **Google Authentication**
-    Use your google account to login/
+    Use your google account to login or use your email and we'll send you a magic link(no password)
 <!-- # React + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.

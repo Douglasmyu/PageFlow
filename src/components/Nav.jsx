@@ -3,10 +3,18 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
-function PublicNav(){
-     
+function AuthNav(){
+    return(
+        <>
+            <Link>Account</Link>
+            <Link>Progress</Link>
+            <Link>Books</Link>
+            <Link>Friends</Link>
+            <button>Logout</button>
+        </>
+    );
 }
-export default function Nav(){
+export default function PublicNav({user}){
     return(
         <div className="fixed top-0 left-0 w-full z-50 bg-slate-700 shadow-md ">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">

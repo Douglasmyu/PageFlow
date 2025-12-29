@@ -3,7 +3,7 @@ import Home from './pages/home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
-import Nav from './components/Nav'
+import PublicNav from './components/Nav'
 import Dashboard from './pages/Dashboard'
 import ProtectedRoutes from './utils/protectedRoutes'
 import {  BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
@@ -17,7 +17,7 @@ function AppContent(){
 
   return (
     <>
-      {shouldShow && <Nav />}
+      {shouldShow && <PublicNav />}
       <Routes>
         <Route path="/" element={<Home />}/>
         <Route path="/About" element={<About />} />
