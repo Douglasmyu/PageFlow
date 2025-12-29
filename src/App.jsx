@@ -4,23 +4,41 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
 import Nav from './components/Nav'
+import Dashboard from './pages/Dashboard'
+import ProtectedRoutes from './utils/protectedRoutes'
 import {  BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
 import './App.css'
 
-function App() {
+
+function AppContent(){
+  const location = useLocation();
+  const noRoutes = ["/Login", "/Register", "/About"];
+  const shouldShow = !noRoutes.includes(location.pathname);
+
   return (
-    <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
-      <BrowserRouter>
-
-      <Nav />
+    <>
+      {shouldShow && <Nav />}
       <Routes>
-
         <Route path="/" element={<Home />}/>
         <Route path="/About" element={<About />} />
         <Route path="/Login"  element={<Login />}/>
         <Route path="/Register"  element={<Register />}/>
-
+        <Route element = {<ProtectedRoutes />}> 
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
+         
+        
+          
       </Routes>
+    
+    </>
+  );
+}
+function App() {
+  return (
+    <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
+      <BrowserRouter>
+        <AppContent />
       </BrowserRouter>
       
       

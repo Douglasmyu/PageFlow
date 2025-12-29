@@ -5,7 +5,7 @@ export default function About(){
     return(
         <div className="w-full px-4 py-8 relative z-10 text-black">
             <div className="w-fit bg-blue-500 hover:bg-blue-700 
-        text-white font-semibold px-6 py-3 rounded-md transition absolute">
+            text-white font-semibold px-6 py-3 rounded-md transition absolute">
                 <button>
                     <Link to ="/">Back</Link>
                 </button>
@@ -65,6 +65,14 @@ export default function About(){
                     Watch your Flowplant grow as you read consistently, offering calm,
                     visual motivation along your reading journey.
                     </p>
+                </div>
+            </div>
+            <div className=" gap-8 ">
+                <div className="bg-white bg-opacitt-80 backdrop-blur-lg p-8 rounded-2xl shadow-xl
+                 border-white border-opacity-20 transform transition-all duration-300 hover:scale-[1.02]">
+
+                    <h2 className="font-bold">Get Book Recs</h2>
+                    <p className="text-[#6b7280]">Finished with your book? Check out what's recommended based on your current reads.</p>
                 </div>
             </div>
         </div>

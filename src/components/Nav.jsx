@@ -2,6 +2,10 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
+
+function PublicNav(){
+     
+}
 export default function Nav(){
     return(
         <div className="fixed top-0 left-0 w-full z-50 bg-slate-700 shadow-md ">

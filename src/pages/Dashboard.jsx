@@ -10,7 +10,7 @@ export default function Dashboard() {
         <div className="mx-auto max-w-6xl space-y-10"> 
             <Welcome />
             <Stats />
-            <readingGrid /> 
+            <readingGrid />
         </div>
       
     </div>
