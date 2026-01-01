@@ -1,51 +1,47 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Home from './pages/home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
-import PublicNav from './components/Nav'
+import Nav from './components/Nav'
+import PublicLayout from './layouts/PublicLayout'
+import ProtectedLayout from './layouts/ProtectedLayout'
 import Dashboard from './pages/Dashboard'
-import ProtectedRoutes from './utils/protectedRoutes'
-import {  BrowserRouter, Routes, Route, Link, useLocation } from 'react-router-dom'
+import {  BrowserRouter, Routes, Route } from 'react-router-dom'
+import { auth } from './firebase/firebase'
+import { onAuthStateChanged } from "firebase/auth";
 import './App.css'
 
 
-function AppContent(){
-  const location = useLocation();
-  const noRoutes = ["/Login", "/Register", "/About"];
-  const shouldShow = !noRoutes.includes(location.pathname);
 
-  return (
-    <>
-      {shouldShow && <PublicNav />}
-      <Routes>
-        <Route path="/" element={<Home />}/>
-        <Route path="/About" element={<About />} />
-        <Route path="/Login"  element={<Login />}/>
-        <Route path="/Register"  element={<Register />}/>
-        <Route element = {<ProtectedRoutes />}> 
-          <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-         
-        
-          
-      </Routes>
-    
-    </>
-  );
-}
 function App() {
+
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+  const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+    setUser(firebaseUser);
+  });
+  return unsubscribe;
+}, []);
   return (
     <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
       <BrowserRouter>
-        <AppContent />
+        <Routes>
+          <Route element={<PublicLayout user={user} />}>
+            <Route path="/" element={<Home />} />
+          </Route>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route path="/about" element={<About />} />
+
+          <Route element={<ProtectedLayout user={user} />}>
+            <Route path="/dashboard" element={<Dashboard />} />
+          </Route>
+        </Routes>
       </BrowserRouter>
-      
-      
     </div>
   )
 }
-
 export default App
 
 // // <a href="https://vite.dev" target="_blank">

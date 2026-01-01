@@ -1,6 +1,6 @@
 import React from "react";
 import ReadingCard from "../components/dashboard/readingCard";
-import readingGrid from "../components/dashboard/readingGrid";
+import ReadingGrid from "../components/dashboard/readingGrid";
 import Stats from "../components/dashboard/stats";
 import Welcome from "../components/dashboard/welcome";
 
@@ -10,7 +10,7 @@ export default function Dashboard() {
         <div className="mx-auto max-w-6xl space-y-10"> 
             <Welcome />
             <Stats />
-            <readingGrid />
+            <ReadingGrid />
         </div>
       
     </div>
