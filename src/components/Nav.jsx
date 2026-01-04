@@ -17,7 +17,6 @@ function AuthNavLinks(){
     return(
         <>
             <Link to="/dashboard" className="hover:text-gray-300">Account</Link>
-            <Link to="/progress" className="hover:text-gray-300">Progress</Link>
             <Link to="/books" className="hover:text-gray-300">Books</Link>
             <Link to="/friends"className="hover:text-gray-300">Friends</Link>
             <button 
