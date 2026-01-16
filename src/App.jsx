@@ -3,7 +3,6 @@ import Home from './pages/home'
 import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
-import Nav from './components/Nav'
 import PublicLayout from './layouts/PublicLayout'
 import ProtectedLayout from './layouts/ProtectedLayout'
 import Dashboard from './pages/Dashboard'
@@ -19,24 +18,26 @@ import './App.css'
 function App() {
 
   const [user, setUser] = useState(null);
+  const [authReady, setAuthReady] = useState(false);
   useEffect(() => {
   const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
     setUser(firebaseUser);
-  });
+    setAuthReady(true);
+  },[]);
   return unsubscribe;
 }, []);
   return (
     <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
       <BrowserRouter>
         <Routes>
-          <Route element={<PublicLayout user={user} />}>
+          <Route element={<PublicLayout user={user} authReady={authReady}/>}>
             <Route path="/" element={<Home />} />
           </Route>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/about" element={<About />} />
 
-          <Route element={<ProtectedLayout user={user} />}>
+          <Route element={<ProtectedLayout user={user} authReady={authReady}/>}>
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/books" element= {<Grid />} />
             <Route path="/friends" element={<Friends />} />

@@ -6,7 +6,7 @@ import {
   signInWithEmailLink,
   signOut,
 } from "firebase/auth";
-
+  
 import { auth } from "./firebase";
 
 //magic link config

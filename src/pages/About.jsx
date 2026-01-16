@@ -14,7 +14,7 @@ export default function About(){
                 <h1 className="text-4xl md:text-5xl font-bold text-blue-500 mb-3">About PageFlow</h1>
             </div>
             <div id="features-1" className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-                <div className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-xl shadow-xl border border-white border-opacity-20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
+                <div className="bg-white bg-opacity-80 backdrop-blur-lg p-8 rounded-x  l shadow-xl border border-white border-opacity-20 transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl">
                     <div className="text-blue-800 mb-4 text-3xl">
                         <span className="inline-block p-3 rounded-full bg-blue-100 bg-opacity-80">📚</span>
                     </div>
