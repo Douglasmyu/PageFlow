@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { signOutUser } from "../firebase/auth";
+import { NavDropdown } from "react-bootstrap";
 
 //logged in links
 function AuthNavLinks(){
@@ -38,10 +39,29 @@ function PublicNavLinks(){
     );
 }
 export default function Nav({user}){
+    const[isOpen, setIsOpen] = useState(false);
+
     const logoTarget = user ? "/dashboard" : "/";
     return(
         <div className="fixed top-0 left-0 w-full z-50 bg-slate-700 shadow-md ">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+            
+                <button onClick={()=> setIsOpen(!isOpen)}
+                        className="md:hidden text-white focus:outline-none">
+                    <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24">
+                            {isOpen ? (
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L 6M6 6l12 12"/>
+                                ):(
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                        )}
+                        
+                    </svg>
+                </button>
                 <div className="text-white font-bold text-lg transition-transform duration-350 hover:scale-150">
                     <Link to={logoTarget}>
                         <span className="text-[#1F2937]">Page</span>
@@ -51,9 +71,10 @@ export default function Nav({user}){
                 <div className="hidden md:block">
                     <div className="flex items-center space-x-8 text-white">
                         {user ? <AuthNavLinks /> : <PublicNavLinks />}
+                        <button id="toggle dark/lightmode"></button>
                     </div>
                 </div>
             </div>
         </div>
-    )
+    );
 }
