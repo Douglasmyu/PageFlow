@@ -45,7 +45,14 @@ export default function Nav({user}){
     return(
         <div className="fixed top-0 left-0 w-full z-50 bg-slate-700 shadow-md ">
             <div className="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
-            
+            {isOpen && (
+                <div className="md:hidden bg-slate-700 px-4 pb-4">
+                    <div className="flex flex-col space-y-4 text-white"
+                        onClick={()=> setIsOpen(false)}>
+                    {user ? <AuthNavLinks /> : <PublicNavLinks />}
+                    </div>
+                </div>
+                )}
                 <button onClick={()=> setIsOpen(!isOpen)}
                         className="md:hidden text-white focus:outline-none">
                     <svg
@@ -55,7 +62,7 @@ export default function Nav({user}){
                         strokeWidth="2"
                         viewBox="0 0 24 24">
                             {isOpen ? (
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L 6M6 6l12 12"/>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12"/>
                                 ):(
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
                         )}

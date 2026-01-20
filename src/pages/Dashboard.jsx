@@ -15,7 +15,7 @@ export default function Dashboard() {
 
               title= "Atomic Habits"
               author= "Robert Green"
-              currentPage = {50}
+              currentPage = {90}
               totalPages = {350}
               />
             <Stats 
