@@ -5,7 +5,7 @@ import { signOutUser } from "../firebase/auth";
 import { NavDropdown } from "react-bootstrap";
 
 //logged in links
-function AuthNavLinks(){
+function AuthNavLinks({user}){
     const navigate = useNavigate();
     const handleSignout = async () => {
         try{
@@ -17,14 +17,27 @@ function AuthNavLinks(){
     };
     return(
         <>
-            <Link to="/dashboard" className="hover:text-gray-300">Account</Link>
-            <Link to="/books" className="hover:text-gray-300">Books</Link>
+            <Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link>
+            <Link to="/books"className="hover:text-gray-300">Books</Link>
             <Link to="/friends"className="hover:text-gray-300">Friends</Link>
-            <button 
-                onClick={handleSignout} 
-                className="ml-4 bg-blue-600 px-4 py-2 rounded-md"
-            >
-                Logout</button>
+            
+            <button className="ml-4 bg-blue-600 px-4 py-2 rounded-md">
+            <NavDropdown title={user?.displayName || "Account"}
+                align="end"
+                className="ml-4">
+                <NavDropdown.Item>
+                    account info
+                </NavDropdown.Item>
+
+                <NavDropdown.Item>
+                    Mybooks
+                </NavDropdown.Item>
+
+                <NavDropdown.Item onClick={handleSignout}>
+                    Logout
+                </NavDropdown.Item>
+            </NavDropdown>
+            </button>
         </>
     );
 }
@@ -49,7 +62,7 @@ export default function Nav({user}){
                 <div className="md:hidden bg-slate-700 px-4 pb-4">
                     <div className="flex flex-col space-y-4 text-white"
                         onClick={()=> setIsOpen(false)}>
-                    {user ? <AuthNavLinks /> : <PublicNavLinks />}
+                        {user ? <AuthNavLinks /> : <PublicNavLinks />}
                     </div>
                 </div>
                 )}

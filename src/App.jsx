@@ -7,7 +7,7 @@ import PublicLayout from './layouts/PublicLayout'
 import ProtectedLayout from './layouts/ProtectedLayout'
 import Dashboard from './pages/Dashboard'
 import Friends from './pages/Friends'
-import Grid from './pages/BookGrid'
+import Books from './pages/Books'
 import {  BrowserRouter, Routes, Route } from 'react-router-dom'
 import { auth } from './firebase/firebase'
 import { onAuthStateChanged } from "firebase/auth";
@@ -39,7 +39,7 @@ function App() {
 
           <Route element={<ProtectedLayout user={user} authReady={authReady}/>}>
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/books" element= {<Grid />} />
+            <Route path="/books" element={<Books />} />
             <Route path="/friends" element={<Friends />} />
           </Route>
         </Routes>
