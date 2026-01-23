@@ -1,7 +1,7 @@
 //grid books
+import { useState } from "react";
 import SearchBook from "../components/bookgrid/Search";
-
-
+import BookRow from "../components/bookgrid/BookRow";
 export default function Books() {
   return (
     <div>
@@ -15,6 +15,8 @@ export default function Books() {
             <div className="p-4">navigation</div>
 
             <div className="p-4">main section for books</div>
+            {/* <BookCard /> */}
+            <BookRow />
         </div>
         
 

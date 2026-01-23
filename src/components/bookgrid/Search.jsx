@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import {books} from "../../datafiles/books";
+
 export default function searchBook(){
     const [searchParams, setSearchParams] = useSearchParams();
     const query = searchParams.get("q") || "";
@@ -21,14 +22,7 @@ export default function searchBook(){
             }}
             placeholder="Search books by title, author, or ISBN"/>
 
-        <div className="mt-4 space-y-2">
-        {filteredBooks.map((book) => (
-          <div key={book.id} className="bg-white p-4 rounded shadow-sm">
-            <p className="font-medium">{book.title}</p>
-            <p className="text-sm text-gray-500">{book.author}</p>
-          </div>
-        ))}
-        </div>
+        
     </div>
     );
 }
