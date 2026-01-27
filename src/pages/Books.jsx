@@ -1,24 +1,28 @@
-//grid books
-import { useState } from "react";
-import SearchBook from "../components/bookgrid/Search";
+import booksCSV from "../data/books.csv?raw";
+import { loadBooks} from "../data/LoadBooks";
 import BookRow from "../components/bookgrid/BookRow";
+
+const books = loadBooks(booksCSV);
+
 export default function Books() {
-  return (
-    <div>
-        {/* search bar */}
 
-        <div>
-            <SearchBook />
-        </div>
-        <div><h1 className="font-bold text-2xl">Explore Books</h1></div>
-        <div className = "grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="p-4">navigation</div>
+    const rows = [
+    {
+    title: "All Books",
+    books: books.slice(0, 4),
+    },
+    ];
 
-            <div className="p-4">main section for books</div>
-            {/* <BookCard /> */}
-            <BookRow />
-        </div>
-        
 
-    </div>);
+    return (
+    <div className="min-h-screen px-6 pt-24 bg-[#F7F9FB]">
+        {rows.map((row) => (
+            <BookRow
+            key={row.title}
+            title={row.title}
+            books={row.books}
+            />
+        ))}
+    </div>
+    );
 }
