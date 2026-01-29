@@ -17,7 +17,7 @@ export default function ReadingCard({title, author, currentPage, totalPages}) {
       <div className="flex justify-around">
         <p>Pages read: {currentPage}/{totalPages}</p>
         <progress  value={progressValue}/>
-        <button className="bg-blue-400 rounded-2xl p-3">Update pages</button>
+        <button className="bg-blue-600 hover:bg-blue-400 transition-colors rounded-2xl p-3">Update</button>
       </div>
     </div>
     );

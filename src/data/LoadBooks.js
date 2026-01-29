@@ -6,7 +6,6 @@ export function loadBooks(csvText) {
     skipEmptyLines: true,
     transformHeader: (h) => h.trim(),
   });
-  console.log("PapaParse result:", result);
 
   return result.data
     .filter(
