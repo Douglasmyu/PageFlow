@@ -7,7 +7,8 @@ export default function PublicLayout({user, authReady}){
     }
 
     if(user){
-        return <Navigate to="/dashboard" />
+        const onboarded = localStorage.getItem(`pf_onboarded_${user.uid}`) === "true";
+        return <Navigate to={onboarded ? "/dashboard" : "/setup"} replace />
     }
     return (
         <>

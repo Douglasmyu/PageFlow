@@ -4,7 +4,8 @@ import Login from './pages/Login'
 import Register from './pages/Register'
 import About from './pages/About'
 import PublicLayout from './layouts/PublicLayout'
-import ProtectedLayout from './layouts/ProtectedLayout'
+import ProtectedRoutes from './layouts/ProtectedLayout'
+import Setup from './pages/Setup'
 import Dashboard from './pages/Dashboard'
 import Friends from './pages/Friends'
 import Books from './pages/Books'
@@ -30,18 +31,20 @@ function App() {
     <div className="h-screen bg-[#F7F9FB] flex items-center justify-center">
       <BrowserRouter>
         <Routes>
-          <Route element={<PublicLayout user={user} authReady={authReady}/>}>
+          {/* PUBLIC ROUTES */}
+          <Route element={<PublicLayout user={user} authReady={authReady} />}>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/about" element={<About />} />
           </Route>
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/about" element={<About />} />
-
-          <Route element={<ProtectedLayout user={user} authReady={authReady}/>}>
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/books" element={<Books />} />
-            <Route path="/friends" element={<Friends />} />
-          </Route>
+        {/* PROTECTED ROUTES */}
+        <Route element={<ProtectedRoutes user={user} authReady={authReady} />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/setup" element={<Setup />} />
+          <Route path="/books" element={<Books />} />
+          <Route path="/friends" element={<Friends />} />
+        </Route>
         </Routes>
       </BrowserRouter>
     </div>
