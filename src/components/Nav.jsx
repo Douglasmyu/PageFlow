@@ -1,11 +1,32 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Link, useNavigate} from "react-router-dom";
 import { signOutUser } from "../firebase/auth";
-import { NavDropdown } from "react-bootstrap";
-
+import { auth } from "../firebase/firebase";
 //logged in links
 function AuthNavLinks({user}){
+    const [displayName, setDisplayName] = useState("");
+    
+      useEffect(()=> {
+        const user = auth.currentUser;
+        if (!user) return;
+        const storedName = localStorage.getItem(`pf_name_${user.uid}`);
+        if (storedName) {
+          setDisplayName(storedName);
+        }
+      },[]);
+
+    const [open, setOpen] = useState(false);
+    const dropdownRef = useRef(null);
+    useEffect(() => {
+        function handleClick(event){
+            if (dropdownRef.current && !dropdownRef.current.contains(event.target)){
+                setOpen(false);
+            }
+        }
+        document.addEventListener("mousedown", handleClick);
+        return ()=> document.removeEventListener("mousedown",handleClick)
+    },[]);
+
     const navigate = useNavigate();
     const handleSignout = async () => {
         try{
@@ -17,27 +38,63 @@ function AuthNavLinks({user}){
     };
     return(
         <>
-            <Link to="/dashboard" className="hover:text-gray-300">Dashboard</Link>
-            <Link to="/books"className="hover:text-gray-300">Books</Link>
-            <Link to="/friends"className="hover:text-gray-300">Friends</Link>
-            
-            <button className="ml-4 bg-blue-600 px-4 py-2 rounded-md">
-            <NavDropdown title={user?.displayName || "Account"}
-                align="end"
-                className="ml-4">
-                <NavDropdown.Item>
-                    account info
-                </NavDropdown.Item>
+            <Link to="/dashboard" className="hover:text-gray-300 no-underline">Dashboard</Link>
+            <Link to="/books"className="hover:text-gray-300 no-underline">Books</Link>
+            <Link to="/friends"className="hover:text-gray-300 no-underline">Friends</Link>
+            <div className="relative ml-4" ref={dropdownRef}>
+                <button 
+                    className="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md text-white" 
+                    onClick={()=>setOpen((prev) => !prev)}>
+                    {displayName|| "Account"}
+                </button>
+                {open && (
+                    <div className="absolute right-0 mt-2 w-44 bg-white rounded-md shadow-lg border border-gray-200 overflow-hidden z-50">
+                        <button 
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() => {
+                            setOpen(false);
+                            }}>
+                            Account Info
+                        </button>
 
-                <NavDropdown.Item>
-                    Mybooks
-                </NavDropdown.Item>
+                        <button
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={() =>{
+                                setOpen(false);
+                            }}>
+                            My Books
+                        </button>
 
-                <NavDropdown.Item onClick={handleSignout}>
-                    Logout
-                </NavDropdown.Item>
-            </NavDropdown>
-            </button>
+                        <button
+                            className="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                            onClick={()=> {
+                                setOpen(false);
+                                handleSignout();
+                            }}>
+                            Log out
+                        </button>
+
+                    </div>
+                )}
+            </div>                
+                {/* <NavDropdown 
+                    title={user?.displayName || "Account"}
+                    align="end"
+                    className="ml-4 text-white">
+                    <NavDropdown.Item className="text-sm">
+                        account info
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item className="text-sm">
+                        Mybooks
+                    </NavDropdown.Item>
+
+                    <NavDropdown.Item className="text-sm" onClick={handleSignout}>
+                        Logout
+                    </NavDropdown.Item>
+                </NavDropdown> */}
+       
+                
         </>
     );
 }

@@ -23,7 +23,7 @@ export default function Dashboard() {
 
         <div className="mx-auto max-w-6xl space-y-10"> 
             <div className="text-center text-4xl font-bold">
-              Welcome,{displayName && `, ${displayName}`}!
+              Welcome{displayName && `, ${displayName}`}!
             </div>  
             <ReadingCard 
 
